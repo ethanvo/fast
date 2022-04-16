@@ -3,4 +3,4 @@ class gaussian_1d {
 	double x // Coordinate
 	double alpha // Orbital exponent
 	double A // Origin 
-}
+};
