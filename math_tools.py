@@ -5,16 +5,22 @@
 # S is Hermitian
 ###############################################################################
 from scipy.linalg import eigh
-import numpy as np
-def canonical_orthogonalization(S):
-    dtype = S.dtype
-    nbas = S.shape[0]
-    print('S dtype is {}'.format(dtype))
-    print('nbas is {}'.format(nbas))
+from numpy.linalg import multi_dot
+from numpy import dot
+def symmetric_orthogonalization(S):
     s, U = eigh(S)
-    X = np.zeros((nbas, nbas), dtype=dtype)
-    for j in range(nbas):
-        X[:, j] = U[:, j] * (s[j] ** -0.5)
+    X = multi_dot([U, np.diag(s ** -0.5), U.conj().T])
+    print(X)
+    return X
+
+###############################################################################
+# Symmetric Orthogonalization
+# 
+###############################################################################
+def canonical_orthogonalization(S):
+    s, U = eigh(S)
+    X = dot(U, np.diag(s ** -0.5))
+    print(X)
     return X
 
 ###############################################################################
@@ -25,12 +31,12 @@ import numpy as np
 def get_Fock_G(P, eris):
     dtype = eris.dtype
     nbas = P.shape[0]
-    print('G dtype is {}'.format(dtype))
-    print('nbas is {}'.format(nbas))
     G = np.zeros((nbas, nbas), dtype=dtype)
-    for lam in range(nbas):
-        for sig in range(nbas):
-            G = G + P[lam, sig] * (eris[:, :, sig, lam] - 0.5 * eris[:, lam, sig, :])
+    for mu in range(nbas):
+        for nu in range(nbas):
+            for lam in range(nbas):
+                for sig in range(nbas):
+                    G[mu, nu] = G[mu, nu] + P[lam, sig] * (eris[mu, nu, sig, lam] - 0.5 * eris[mu, lam, sig, nu])
     return G
 
 ###############################################################################
@@ -38,7 +44,24 @@ def get_Fock_G(P, eris):
 ###############################################################################
 import numpy as np
 def get_density_matrix(C, nelectron):
-    a = int(np.ceil(nelectron / 2))
-    P = np.dot(C[:, :a], C[:, :a].conj().T)
+    nbas = C.shape[0]
+    dtype = C.dtype
+    P = np.zeros((nbas, nbas), dtype=dtype)
+    for mu in range(nbas):
+        for nu in range(nbas):
+            for a in range(int(np.ceil(nelectron / 2))):
+                P[mu, nu] = P[mu, nu] + 2 * C[mu, a] * C.conj()[nu, a]
     return P
 
+###############################################################################
+# Get electronic energy
+# E_0 = \frac{1}{2}\sum_{mu}\sum_{nu}P_{nu mu}(H_core_{mu nu} + F_{mu nu})
+###############################################################################
+import numpy as np
+def get_electronic_energy(P, H_core, F):
+    nbas = P.shape[0]
+    E_0 = 0
+    for mu in range(nbas):
+        for nu in range(nbas):
+            E_0 = E_0 + 0.5 * P[nu, mu] * (H_core[mu, nu] + F[mu, nu])
+    return E_0

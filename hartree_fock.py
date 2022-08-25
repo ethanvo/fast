@@ -3,8 +3,7 @@ from pyscf import gto
 import numpy as np
 from numpy.linalg import multi_dot
 from scipy.linalg import eigh
-from math_tools import get_Fock_G
-from math_tools import get_density_matrix
+from math_tools import get_Fock_G, get_density_matrix, get_electronic_energy
 
 ###############################################################################
 # Specify a molecule
@@ -12,11 +11,17 @@ from math_tools import get_density_matrix
 mol = gto.Mole()
 mol.verbose = 7
 mol.atom = [
-        ['O', (  0.0000,  0.0000,  0.1147)],
-        ['H', (  0.0000,  0.7540, -0.4588)],
-        ['H', (  0.0000, -0.7540, -0.4588)]]
-mol.basis = 'sto-3g'
+        ['O', (  0.0000,  0.0000,  0.116)],
+        ['H', (  0.0000,  0.749, -0.463)],
+        ['H', (  0.0000, -0.749, -0.463)]]
+mol.basis = 'ccpvdz'
 mol.build()
+
+E_nuc = mol.energy_nuc()
+
+from pyscf import scf
+mymf = scf.RHF(mol)
+mymf.kernel()
 
 ###############################################################################
 # Calculate all required molecular integrals
@@ -36,8 +41,8 @@ H_core = V_nucl + T
 # Canonical orthogonalization
 # S is Hermitian
 ###############################################################################
-from math_tools import canonical_orthogonalization
-X = canonical_orthogonalization(S)
+from math_tools import symmetric_orthogonalization
+X = symmetric_orthogonalization(S)
 
 ###############################################################################
 # Obtain a guess density matrix P
@@ -67,7 +72,10 @@ while not conv:
 # Diagonalize F' to obtain C' and epsilon
 ###############################################################################
     epsilon, C_prime = eigh(F_prime)
-
+    index_array = np.argsort(epsilon)
+    epsilon = epsilon[index_array]
+    C_prime = C_prime[:, index_array]
+    print(epsilon)
 ###############################################################################
 # Calculate C = XC'
 ###############################################################################
@@ -77,13 +85,17 @@ while not conv:
 # P_{mu, nu} = 2\sum^{\frac{N}{2}}_aC_{mu, a}C^*{nu, a}
 ###############################################################################
     P_prime = get_density_matrix(C, nelectron)
+    E_0 = get_electronic_energy(P_prime, H_core, F)
+    E_tot = E_0 + E_nuc
+    print(E_tot)
 
 ###############################################################################
 # Check Convergence delta less than 1.0E-4
 ###############################################################################
-    if (np.sum(np.abs(P_prime - P)) / nbas) < 1e-6:
+    if (np.sum(np.abs(P_prime - P)) / nbas) < 1e-8:
         conv = True
     else:
         P = P_prime
 
-E = 0.5 *np.sum
+S = np.array([[1.0, 0.4508],[0.4508, 1.0]])
+print(symmetric_orthogonalization(S))
