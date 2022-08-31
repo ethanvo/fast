@@ -4,6 +4,8 @@ import numpy as np
 from numpy.linalg import multi_dot
 from scipy.linalg import eigh
 from math_tools import get_Fock_G, get_density_matrix, get_electronic_energy
+from math_tools import symmetric_orthogonalization
+from math_tools import canonical_orthogonalization
 
 ###############################################################################
 # Specify a molecule
@@ -43,9 +45,8 @@ H_core = V_nucl + T
 # Canonical orthogonalization
 # S is Hermitian
 ###############################################################################
-from math_tools import canonical_orthogonalization
 
-X = canonical_orthogonalization(S)
+X = symmetric_orthogonalization(S)
 
 ###############################################################################
 # Obtain a guess density matrix P
