@@ -3,11 +3,11 @@ from pyscf import gto
 import numpy as np
 from numpy.linalg import multi_dot
 from scipy.linalg import eigh
-from math_tools import get_Fock_G, get_density_matrix, get_electronic_energy
-from math_tools import symmetric_orthogonalization
-from math_tools import symmetric_orthogonalization_explicit
-from math_tools import canonical_orthogonalization
-from math_tools import canonical_orthogonalization_explicit
+from hf_tools import get_Fock_G, get_density_matrix, get_electronic_energy
+from hf_tools import symmetric_orthogonalization
+from hf_tools import symmetric_orthogonalization_explicit
+from hf_tools import canonical_orthogonalization
+from hf_tools import canonical_orthogonalization_explicit
 
 mol = gto.Mole()
 mol.verbose = 7

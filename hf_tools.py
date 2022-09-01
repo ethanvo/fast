@@ -30,7 +30,7 @@ def canonical_orthogonalization(S):
     return X
 
 
-def get_Fock_G(P, eris):
+def get_Fock_G_explicit(P, eris):
     dtype = eris.dtype
     nbas = P.shape[0]
     G = np.zeros((nbas, nbas), dtype=dtype)
@@ -44,7 +44,12 @@ def get_Fock_G(P, eris):
     return G
 
 
-def get_density_matrix(C, nelectron):
+def get_Fock_G(P, eris):
+    G = contract("ij,klji", P, eris - 0.5 * eris.transpose(0, 3, 2, 1))
+    return G
+
+
+def get_density_matrix_explicit(C, nelectron):
     nbas = C.shape[0]
     dtype = C.dtype
     P = np.zeros((nbas, nbas), dtype=dtype)
@@ -55,10 +60,21 @@ def get_density_matrix(C, nelectron):
     return P
 
 
-def get_electronic_energy(P, H_core, F):
+def get_density_matrix(C, nelectron):
+    a = list(range(int(np.ceil(nelectron / 2))))
+    P = 2 * contract("ia,ja", C[:, a], C[:, a].conj())
+    return P
+
+
+def get_electronic_energy_explicit(P, H_core, F):
     nbas = P.shape[0]
     E_0 = 0
     for mu in range(nbas):
         for nu in range(nbas):
             E_0 = E_0 + 0.5 * P[nu, mu] * (H_core[mu, nu] + F[mu, nu])
+    return E_0
+
+
+def get_electronic_energy(P, H_core, F):
+    E_0 = 0.5 * contract("ji,ij", P, H_core + F)
     return E_0
