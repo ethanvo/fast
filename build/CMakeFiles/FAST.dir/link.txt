@@ -1,1 +1,1 @@
-/moto/berkelbach/users/eav2136/builds/spack/develop/spack/opt/spack/linux-rhel7-skylake_avx512/gcc-7.2.0/gcc-11.3.0-cdcycjlx3h45i5ptlgl7es5sxi4vggfy/bin/g++ -rdynamic CMakeFiles/FAST.dir/slate_matrix_vector.cc.o -o FAST 
+/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Fast.dir/main.cpp.o -o Fast  libFastLib.a 

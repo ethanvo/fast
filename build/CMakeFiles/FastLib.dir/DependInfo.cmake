@@ -8,12 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/ethanvo/builds/fast/main.cpp" "CMakeFiles/Fast.dir/main.cpp.o" "gcc" "CMakeFiles/Fast.dir/main.cpp.o.d"
+  "/Users/ethanvo/builds/fast/simple_lib.cpp" "CMakeFiles/FastLib.dir/simple_lib.cpp.o" "gcc" "CMakeFiles/FastLib.dir/simple_lib.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/ethanvo/builds/fast/build/CMakeFiles/FastLib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
