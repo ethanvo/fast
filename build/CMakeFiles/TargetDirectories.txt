@@ -2,3 +2,5 @@
 /Users/ethanvo/builds/fast/build/CMakeFiles/Fast.dir
 /Users/ethanvo/builds/fast/build/CMakeFiles/edit_cache.dir
 /Users/ethanvo/builds/fast/build/CMakeFiles/rebuild_cache.dir
+/Users/ethanvo/builds/fast/build/src/CMakeFiles/edit_cache.dir
+/Users/ethanvo/builds/fast/build/src/CMakeFiles/rebuild_cache.dir
