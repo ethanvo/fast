@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named FastSubLib
+
+# Build rule for target.
+FastSubLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FastSubLib
+.PHONY : FastSubLib
+
+# fast build rule for target.
+FastSubLib/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/build
+.PHONY : FastSubLib/fast
+
+#=============================================================================
 # Target rules for targets named FastLib
 
 # Build rule for target.
@@ -126,8 +139,21 @@ FastLib: cmake_check_build_system
 
 # fast build rule for target.
 FastLib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/build
 .PHONY : FastLib/fast
+
+#=============================================================================
+# Target rules for targets named AtomicMapLib
+
+# Build rule for target.
+AtomicMapLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AtomicMapLib
+.PHONY : AtomicMapLib
+
+# fast build rule for target.
+AtomicMapLib/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/build
+.PHONY : AtomicMapLib/fast
 
 #=============================================================================
 # Target rules for targets named Fast
@@ -139,56 +165,8 @@ Fast: cmake_check_build_system
 
 # fast build rule for target.
 Fast/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/build
 .PHONY : Fast/fast
-
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/main.cpp.s
-.PHONY : main.cpp.s
-
-simple_lib.o: simple_lib.cpp.o
-.PHONY : simple_lib.o
-
-# target to build an object file
-simple_lib.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/simple_lib.cpp.o
-.PHONY : simple_lib.cpp.o
-
-simple_lib.i: simple_lib.cpp.i
-.PHONY : simple_lib.i
-
-# target to preprocess a source file
-simple_lib.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/simple_lib.cpp.i
-.PHONY : simple_lib.cpp.i
-
-simple_lib.s: simple_lib.cpp.s
-.PHONY : simple_lib.s
-
-# target to generate assembly for a file
-simple_lib.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/simple_lib.cpp.s
-.PHONY : simple_lib.cpp.s
 
 # Help Target
 help:
@@ -198,14 +176,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... AtomicMapLib"
 	@echo "... Fast"
 	@echo "... FastLib"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... simple_lib.o"
-	@echo "... simple_lib.i"
-	@echo "... simple_lib.s"
+	@echo "... FastSubLib"
 .PHONY : help
 
 

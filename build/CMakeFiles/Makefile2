@@ -63,8 +63,6 @@ CMAKE_BINARY_DIR = /Users/ethanvo/builds/fast/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/FastLib.dir/all
-all: CMakeFiles/Fast.dir/all
 all: src/all
 .PHONY : all
 
@@ -73,8 +71,6 @@ preinstall: src/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/FastLib.dir/clean
-clean: CMakeFiles/Fast.dir/clean
 clean: src/clean
 .PHONY : clean
 
@@ -82,7 +78,10 @@ clean: src/clean
 # Directory level rules for directory src
 
 # Recursive "all" directory target.
-src/all:
+src/all: src/CMakeFiles/FastSubLib.dir/all
+src/all: src/CMakeFiles/FastLib.dir/all
+src/all: src/CMakeFiles/AtomicMapLib.dir/all
+src/all: src/CMakeFiles/Fast.dir/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
@@ -90,60 +89,117 @@ src/preinstall:
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
-src/clean:
+src/clean: src/CMakeFiles/FastSubLib.dir/clean
+src/clean: src/CMakeFiles/FastLib.dir/clean
+src/clean: src/CMakeFiles/AtomicMapLib.dir/clean
+src/clean: src/CMakeFiles/Fast.dir/clean
 .PHONY : src/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/FastLib.dir
+# Target rules for target src/CMakeFiles/FastSubLib.dir
 
 # All Build rule for target.
-CMakeFiles/FastLib.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=3,4 "Built target FastLib"
-.PHONY : CMakeFiles/FastLib.dir/all
+src/CMakeFiles/FastSubLib.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=7,8 "Built target FastSubLib"
+.PHONY : src/CMakeFiles/FastSubLib.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/FastLib.dir/rule: cmake_check_build_system
+src/CMakeFiles/FastSubLib.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/FastLib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/FastSubLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 0
-.PHONY : CMakeFiles/FastLib.dir/rule
+.PHONY : src/CMakeFiles/FastSubLib.dir/rule
 
 # Convenience name for target.
-FastLib: CMakeFiles/FastLib.dir/rule
+FastSubLib: src/CMakeFiles/FastSubLib.dir/rule
+.PHONY : FastSubLib
+
+# clean rule for target.
+src/CMakeFiles/FastSubLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/clean
+.PHONY : src/CMakeFiles/FastSubLib.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/FastLib.dir
+
+# All Build rule for target.
+src/CMakeFiles/FastLib.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=5,6 "Built target FastLib"
+.PHONY : src/CMakeFiles/FastLib.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/FastLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/FastLib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/FastLib.dir/rule
+
+# Convenience name for target.
+FastLib: src/CMakeFiles/FastLib.dir/rule
 .PHONY : FastLib
 
 # clean rule for target.
-CMakeFiles/FastLib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FastLib.dir/build.make CMakeFiles/FastLib.dir/clean
-.PHONY : CMakeFiles/FastLib.dir/clean
+src/CMakeFiles/FastLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/clean
+.PHONY : src/CMakeFiles/FastLib.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Fast.dir
+# Target rules for target src/CMakeFiles/AtomicMapLib.dir
 
 # All Build rule for target.
-CMakeFiles/Fast.dir/all: CMakeFiles/FastLib.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=1,2 "Built target Fast"
-.PHONY : CMakeFiles/Fast.dir/all
+src/CMakeFiles/AtomicMapLib.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=1,2 "Built target AtomicMapLib"
+.PHONY : src/CMakeFiles/AtomicMapLib.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Fast.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Fast.dir/all
+src/CMakeFiles/AtomicMapLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/AtomicMapLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 0
-.PHONY : CMakeFiles/Fast.dir/rule
+.PHONY : src/CMakeFiles/AtomicMapLib.dir/rule
 
 # Convenience name for target.
-Fast: CMakeFiles/Fast.dir/rule
+AtomicMapLib: src/CMakeFiles/AtomicMapLib.dir/rule
+.PHONY : AtomicMapLib
+
+# clean rule for target.
+src/CMakeFiles/AtomicMapLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/clean
+.PHONY : src/CMakeFiles/AtomicMapLib.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/Fast.dir
+
+# All Build rule for target.
+src/CMakeFiles/Fast.dir/all: src/CMakeFiles/FastSubLib.dir/all
+src/CMakeFiles/Fast.dir/all: src/CMakeFiles/FastLib.dir/all
+src/CMakeFiles/Fast.dir/all: src/CMakeFiles/AtomicMapLib.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ethanvo/builds/fast/build/CMakeFiles --progress-num=3,4 "Built target Fast"
+.PHONY : src/CMakeFiles/Fast.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/Fast.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Fast.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanvo/builds/fast/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/Fast.dir/rule
+
+# Convenience name for target.
+Fast: src/CMakeFiles/Fast.dir/rule
 .PHONY : Fast
 
 # clean rule for target.
-CMakeFiles/Fast.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fast.dir/build.make CMakeFiles/Fast.dir/clean
-.PHONY : CMakeFiles/Fast.dir/clean
+src/CMakeFiles/Fast.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/clean
+.PHONY : src/CMakeFiles/Fast.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

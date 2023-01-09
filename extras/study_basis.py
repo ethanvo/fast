@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from pyscf import gto
+import numpy as np
 
 # Specify a molecule
 mol = gto.Mole()
@@ -11,4 +12,7 @@ mol.atom = [
 ]
 mol.basis = "cc-pvdz"
 mol.build()
-print(mol._basis)
+print(mol.ao_labels())
+
+S = gto.getints("cint1e_ovlp_sph", mol._atm, mol._bas, mol._env)
+print(np.diag(S, k=1))

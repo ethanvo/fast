@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libFastSubLib.a CMakeFiles/FastSubLib.dir/sub_lib.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libFastSubLib.a

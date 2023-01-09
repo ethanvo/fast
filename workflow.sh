@@ -5,4 +5,4 @@
 cmake -B build
 cd build
 make
-./Fast
+src/Fast

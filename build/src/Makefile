@@ -116,6 +116,158 @@ depend:
 	cd /Users/ethanvo/builds/fast/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+src/CMakeFiles/FastSubLib.dir/rule:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/FastSubLib.dir/rule
+.PHONY : src/CMakeFiles/FastSubLib.dir/rule
+
+# Convenience name for target.
+FastSubLib: src/CMakeFiles/FastSubLib.dir/rule
+.PHONY : FastSubLib
+
+# fast build rule for target.
+FastSubLib/fast:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/build
+.PHONY : FastSubLib/fast
+
+# Convenience name for target.
+src/CMakeFiles/FastLib.dir/rule:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/FastLib.dir/rule
+.PHONY : src/CMakeFiles/FastLib.dir/rule
+
+# Convenience name for target.
+FastLib: src/CMakeFiles/FastLib.dir/rule
+.PHONY : FastLib
+
+# fast build rule for target.
+FastLib/fast:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/build
+.PHONY : FastLib/fast
+
+# Convenience name for target.
+src/CMakeFiles/AtomicMapLib.dir/rule:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/AtomicMapLib.dir/rule
+.PHONY : src/CMakeFiles/AtomicMapLib.dir/rule
+
+# Convenience name for target.
+AtomicMapLib: src/CMakeFiles/AtomicMapLib.dir/rule
+.PHONY : AtomicMapLib
+
+# fast build rule for target.
+AtomicMapLib/fast:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/build
+.PHONY : AtomicMapLib/fast
+
+# Convenience name for target.
+src/CMakeFiles/Fast.dir/rule:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Fast.dir/rule
+.PHONY : src/CMakeFiles/Fast.dir/rule
+
+# Convenience name for target.
+Fast: src/CMakeFiles/Fast.dir/rule
+.PHONY : Fast
+
+# fast build rule for target.
+Fast/fast:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/build
+.PHONY : Fast/fast
+
+atomic_map_lib.o: atomic_map_lib.cpp.o
+.PHONY : atomic_map_lib.o
+
+# target to build an object file
+atomic_map_lib.cpp.o:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/atomic_map_lib.cpp.o
+.PHONY : atomic_map_lib.cpp.o
+
+atomic_map_lib.i: atomic_map_lib.cpp.i
+.PHONY : atomic_map_lib.i
+
+# target to preprocess a source file
+atomic_map_lib.cpp.i:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/atomic_map_lib.cpp.i
+.PHONY : atomic_map_lib.cpp.i
+
+atomic_map_lib.s: atomic_map_lib.cpp.s
+.PHONY : atomic_map_lib.s
+
+# target to generate assembly for a file
+atomic_map_lib.cpp.s:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/atomic_map_lib.cpp.s
+.PHONY : atomic_map_lib.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+simple_lib.o: simple_lib.cpp.o
+.PHONY : simple_lib.o
+
+# target to build an object file
+simple_lib.cpp.o:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/simple_lib.cpp.o
+.PHONY : simple_lib.cpp.o
+
+simple_lib.i: simple_lib.cpp.i
+.PHONY : simple_lib.i
+
+# target to preprocess a source file
+simple_lib.cpp.i:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/simple_lib.cpp.i
+.PHONY : simple_lib.cpp.i
+
+simple_lib.s: simple_lib.cpp.s
+.PHONY : simple_lib.s
+
+# target to generate assembly for a file
+simple_lib.cpp.s:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/simple_lib.cpp.s
+.PHONY : simple_lib.cpp.s
+
+sub_lib.o: sub_lib.cpp.o
+.PHONY : sub_lib.o
+
+# target to build an object file
+sub_lib.cpp.o:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/sub_lib.cpp.o
+.PHONY : sub_lib.cpp.o
+
+sub_lib.i: sub_lib.cpp.i
+.PHONY : sub_lib.i
+
+# target to preprocess a source file
+sub_lib.cpp.i:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/sub_lib.cpp.i
+.PHONY : sub_lib.cpp.i
+
+sub_lib.s: sub_lib.cpp.s
+.PHONY : sub_lib.s
+
+# target to generate assembly for a file
+sub_lib.cpp.s:
+	cd /Users/ethanvo/builds/fast/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/sub_lib.cpp.s
+.PHONY : sub_lib.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +276,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... AtomicMapLib"
+	@echo "... Fast"
+	@echo "... FastLib"
+	@echo "... FastSubLib"
+	@echo "... atomic_map_lib.o"
+	@echo "... atomic_map_lib.i"
+	@echo "... atomic_map_lib.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... simple_lib.o"
+	@echo "... simple_lib.i"
+	@echo "... simple_lib.s"
+	@echo "... sub_lib.o"
+	@echo "... sub_lib.i"
+	@echo "... sub_lib.s"
 .PHONY : help
 
 
