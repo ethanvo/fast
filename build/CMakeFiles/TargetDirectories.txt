@@ -1,8 +1,5 @@
 /Users/ethanvo/builds/fast/build/CMakeFiles/edit_cache.dir
 /Users/ethanvo/builds/fast/build/CMakeFiles/rebuild_cache.dir
-/Users/ethanvo/builds/fast/build/src/CMakeFiles/FastSubLib.dir
-/Users/ethanvo/builds/fast/build/src/CMakeFiles/FastLib.dir
-/Users/ethanvo/builds/fast/build/src/CMakeFiles/AtomicMapLib.dir
-/Users/ethanvo/builds/fast/build/src/CMakeFiles/Fast.dir
+/Users/ethanvo/builds/fast/build/src/CMakeFiles/program.dir
 /Users/ethanvo/builds/fast/build/src/CMakeFiles/edit_cache.dir
 /Users/ethanvo/builds/fast/build/src/CMakeFiles/rebuild_cache.dir

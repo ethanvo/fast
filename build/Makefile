@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.25.1/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.25.2/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.25.1/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.25.2/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/ethanvo/builds/fast/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.25.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.25.2/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.25.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.25.2/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -117,56 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FastSubLib
+# Target rules for targets named program
 
 # Build rule for target.
-FastSubLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FastSubLib
-.PHONY : FastSubLib
+program: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 program
+.PHONY : program
 
 # fast build rule for target.
-FastSubLib/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastSubLib.dir/build.make src/CMakeFiles/FastSubLib.dir/build
-.PHONY : FastSubLib/fast
-
-#=============================================================================
-# Target rules for targets named FastLib
-
-# Build rule for target.
-FastLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FastLib
-.PHONY : FastLib
-
-# fast build rule for target.
-FastLib/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/FastLib.dir/build.make src/CMakeFiles/FastLib.dir/build
-.PHONY : FastLib/fast
-
-#=============================================================================
-# Target rules for targets named AtomicMapLib
-
-# Build rule for target.
-AtomicMapLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AtomicMapLib
-.PHONY : AtomicMapLib
-
-# fast build rule for target.
-AtomicMapLib/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/AtomicMapLib.dir/build.make src/CMakeFiles/AtomicMapLib.dir/build
-.PHONY : AtomicMapLib/fast
-
-#=============================================================================
-# Target rules for targets named Fast
-
-# Build rule for target.
-Fast: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Fast
-.PHONY : Fast
-
-# fast build rule for target.
-Fast/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Fast.dir/build.make src/CMakeFiles/Fast.dir/build
-.PHONY : Fast/fast
+program/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/program.dir/build.make src/CMakeFiles/program.dir/build
+.PHONY : program/fast
 
 # Help Target
 help:
@@ -176,10 +137,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... AtomicMapLib"
-	@echo "... Fast"
-	@echo "... FastLib"
-	@echo "... FastSubLib"
+	@echo "... program"
 .PHONY : help
 
 
