@@ -5,10 +5,10 @@
 #include <vector>
 
 struct Atom {
-    std::string symbol;
-    double x, y, z;
+  std::string symbol;
+  double x, y, z;
 };
 
 std::vector<Atom> extractNuclearCoordinates(const std::string& filePath);
 
-#endif // COORDINATES_H
+#endif  // COORDINATES_H

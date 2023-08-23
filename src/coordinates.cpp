@@ -14,7 +14,7 @@ std::vector<Atom> extractNuclearCoordinates(const std::string& filePath) {
   }
 
   std::string line;
-  bool readCoordinates =
+  bool readingCoordinates =
       false;  // Flag to indicate when to start reading coordinates
 
   while (std::getline(inputFile, line)) {
@@ -23,13 +23,14 @@ std::vector<Atom> extractNuclearCoordinates(const std::string& filePath) {
     iss >> keyword;
 
     if (keyword == "geometry") {
-      readCoordinates = true;
+      readingCoordinates = true;
       continue;
-    } else if (keyword == "end") {
+    } else if (keyword == "end" && readingCoordinates) {
+      readingCoordinates = false;
       break;  // Stop reading coordinates
     }
 
-    if (readCoordinates) {
+    if (readingCoordinates) {
       std::istringstream coordIss(line);
       std::string symbol;
       double x, y, z;
@@ -41,6 +42,6 @@ std::vector<Atom> extractNuclearCoordinates(const std::string& filePath) {
     }
   }
 
-  inputFile.close();
+  //  inputFile.close();
   return nuclearCoords;
 }
